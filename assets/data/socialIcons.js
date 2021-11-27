@@ -4,24 +4,24 @@ export const socialIcons = [
     {
         id: 'instagram',
         name: 'Instagram',
-        url: 'https://www.instagram.com/realtornext/',
+        url: 'https://www.instagram.com/rh.rahat0047/',
         color: '#E4405F',
         Icon: <FaInstagram />,
     },
     {
         id: 'twitter',
         name: 'Twitter',
-        url: 'https://twitter.com/realtornext',
+        url: 'https://twitter.com/rh_rahat_dev',
         color: '#1DA1F2',
         Icon: <FaTwitter />,
     },
-    {
-        id: 'youtube',
-        name: 'Youtube',
-        url: 'https://www.youtube.com/channel/UC-lHJZR3Gqxm24_Vd_AJ5Yw',
-        color: '#FF0000',
-        Icon: <FaYoutube />,
-    },
+    // {
+    //     id: 'youtube',
+    //     name: 'Youtube',
+    //     url: 'https://www.youtube.com/channel/UC-lHJZR3Gqxm24_Vd_AJ5Yw',
+    //     color: '#FF0000',
+    //     Icon: <FaYoutube />,
+    // },
     {
         id: 'github',
         name: 'Github',
