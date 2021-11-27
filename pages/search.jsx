@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import { Flex, Box, Icon, Text } from '@chakra-ui/react';
 import { BsFilter } from 'react-icons/bs';
 import SearchFilters from '../components/SearchFilters';
@@ -11,9 +10,6 @@ import { baseUrl, fetchApi } from '../utils/fetchApi';
 export default function Search({ properties }) {
     const [searchFilters, setSearchFilters] = useState(false);
     const router = useRouter();
-
-    console.log(properties);
-
     return (
         <Box>
             <Flex
@@ -41,16 +37,17 @@ export default function Search({ properties }) {
                     <Property key={property?.id} property={property} />
                 ))}
             </Flex>
-            {properties?.length === 0 && (
-                <Flex
-                    my='5'
-                    justifyContent='center'
-                    alignItems='center'
-                    flexDir='column'
-                >
-                    <NotFound />
-                </Flex>
-            )}
+            {!properties ||
+                (properties?.length === 0 && (
+                    <Flex
+                        my='5'
+                        justifyContent='center'
+                        alignItems='center'
+                        flexDir='column'
+                    >
+                        <NotFound />
+                    </Flex>
+                ))}
         </Box>
     );
 }
