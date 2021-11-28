@@ -130,7 +130,7 @@ const PropertyDetails = ({ property }) => {
                     )}
                 </Flex>
                 <Box>
-                    {property.amenities.length && (
+                    {property?.amenities?.length && (
                         <Text
                             borderBottom='1px'
                             borderColor='gray.200'
@@ -142,51 +142,53 @@ const PropertyDetails = ({ property }) => {
                             Amenities
                         </Text>
                     )}
-                    <SimpleGrid
-                        mt={4}
-                        columns={{ base: 1, md: 2, lg: 3 }}
-                        spacing={10}
-                    >
-                        {property.amenities.map(item => (
-                            <Box
-                                key={item.text}
-                                p='2'
-                                border='1px'
-                                borderColor='gray.200'
-                                borderRadius='5px'
-                                boxShadow='0px 0px 5px rgba(0, 0, 0, 0.1)'
-                            >
-                                <Text
-                                    fontSize={'xl'}
-                                    fontWeight='bold'
-                                    mb={3}
-                                    textAlign='center'
+                    {property?.amenities?.length && (
+                        <SimpleGrid
+                            mt={4}
+                            columns={{ base: 1, md: 2, lg: 3 }}
+                            spacing={10}
+                        >
+                            {property.amenities.map(item => (
+                                <Box
+                                    key={item.text}
+                                    p='2'
+                                    border='1px'
+                                    borderColor='gray.200'
+                                    borderRadius='5px'
+                                    boxShadow='0px 0px 5px rgba(0, 0, 0, 0.1)'
                                 >
-                                    {item.text}
-                                </Text>
-                                {item.amenities.map(amenity => (
                                     <Text
+                                        fontSize={'xl'}
                                         fontWeight='bold'
-                                        color='blue.400'
-                                        fontSize='lg'
-                                        p={2}
-                                        bg='gray.200'
-                                        margin='1'
-                                        borderRadius='5'
-                                        cursor='pointer'
-                                        transition='all 0.2s ease'
-                                        _hover={{
-                                            bg: 'blue.500',
-                                            color: 'white',
-                                        }}
-                                        key={amenity.text}
+                                        mb={3}
+                                        textAlign='center'
                                     >
-                                        {amenity.text}
+                                        {item.text}
                                     </Text>
-                                ))}
-                            </Box>
-                        ))}
-                    </SimpleGrid>
+                                    {item.amenities.map(amenity => (
+                                        <Text
+                                            fontWeight='bold'
+                                            color='blue.400'
+                                            fontSize='lg'
+                                            p={2}
+                                            bg='gray.200'
+                                            margin='1'
+                                            borderRadius='5'
+                                            cursor='pointer'
+                                            transition='all 0.2s ease'
+                                            _hover={{
+                                                bg: 'blue.500',
+                                                color: 'white',
+                                            }}
+                                            key={amenity.text}
+                                        >
+                                            {amenity.text}
+                                        </Text>
+                                    ))}
+                                </Box>
+                            ))}
+                        </SimpleGrid>
+                    )}
                 </Box>
                 {/* Amenities End Here */}
 
