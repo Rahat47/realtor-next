@@ -32,7 +32,8 @@ export default function SearchFilters() {
         const values = getFilterValues(filterValues);
 
         values.forEach(value => {
-            query[value.name] = value.value;
+            if (value.value && filterValues?.[value.name])
+                query[value.name] = value.value;
         });
 
         router.push({
