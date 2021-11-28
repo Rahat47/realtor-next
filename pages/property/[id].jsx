@@ -1,8 +1,6 @@
 import {
     Box,
     Flex,
-    Avatar,
-    Spacer,
     Text,
     SimpleGrid,
     HStack,

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Flex, Box, Icon, Text } from '@chakra-ui/react';
+import { Flex, Box, SimpleGrid, Icon, Text } from '@chakra-ui/react';
 import { BsFilter } from 'react-icons/bs';
 import SearchFilters from '../components/SearchFilters';
-import Property from '../components/Property';
 import NotFound from '../components/NotFound';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
+import PropertyCard from '../components/PropertyCard';
 
 export default function Search({ properties }) {
     const [searchFilters, setSearchFilters] = useState(false);
@@ -32,11 +32,11 @@ export default function Search({ properties }) {
             <Text fontSize='2xl' p='4' fontWeight='bold'>
                 Properties {router.query.purpose}
             </Text>
-            <Flex flexWrap='wrap'>
+            <SimpleGrid columns={[1, 1, 2, 3]} gap={10}>
                 {properties?.map(property => (
-                    <Property key={property?.id} property={property} />
+                    <PropertyCard key={property?.id} property={property} />
                 ))}
-            </Flex>
+            </SimpleGrid>
             {!properties ||
                 (properties?.length === 0 && (
                     <Flex
